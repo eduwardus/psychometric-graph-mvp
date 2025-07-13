@@ -1,0 +1,9 @@
+numpy
+pandas
+scikit-learn
+transformers
+torch
+psychometrics
+irtpy
+networkx
+matplotlib
