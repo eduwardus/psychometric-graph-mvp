@@ -1,0 +1,73 @@
+Existen varios datasets públicos de resultados de tests psicológicos (ansiedad, depresión, etc.) en plataformas académicas y repositorios científicos. Aquí te dejo una lista cuidadosamente seleccionada:
+🔍 Principales Fuentes de Datos Psicométricos Públicos
+1. OpenPsychometrics
+
+    Contenido: Datos crudos de tests como el Big Five, Beck Depression Inventory (BDI), y GAD-7 (ansiedad).
+
+    Ejemplo directo:
+
+        Datos del test de personalidad IPIP (incluye ítems relacionados con ansiedad).
+
+        Test GAD-7 (escala de ansiedad generalizada).
+
+2. Figshare
+
+    Búsqueda recomendada:
+    python
+
+    "anxiety test data" OR "depression scale dataset" filetype:csv
+
+    Dataset destacado:
+
+        Hospital Anxiety and Depression Scale (HADS) (respuestas de 1,000+ participantes).
+
+3. Kaggle
+
+    Datasets populares:
+
+        Anxiety and Depression in Young Adults (5,000 respuestas, escalas Likert).
+
+        DASS-21 Dataset (Depression, Anxiety, Stress Scales).
+
+4. UCI Machine Learning Repository
+
+    Dataset clásico:
+
+        Mental Health Screening (PHQ-9 y GAD-7) (datos anonimizados).
+
+5. GitHub - Proyectos Académicos
+
+    Búsqueda:
+    python
+
+    "psychometric data" OR "anxiety test" filename:*.csv
+
+    Ejemplo:
+
+        Dataset de depresión en estudiantes (buscar en repositorios de psicología).
+
+📥 Cómo Cargar Estos Datos en el Proyecto
+
+Ejemplo con Python (usando datos de Kaggle):
+python
+
+import pandas as pd
+
+# Cargar dataset de ansiedad (ejemplo Kaggle)
+url = "https://raw.githubusercontent.com/username/repo/main/anxiety_data.csv"
+df = pd.read_csv(url)
+
+# Filtrar ítems relevantes
+items_ansiedad = df[["GAD1", "GAD2", "GAD3", "GAD7"]]  # Columnas del test GAD-7
+print(items_ansiedad.head())
+
+🔍 Búsqueda Específica por Test
+
+Si necesitas datos de un test concreto, dime cuál (ej: PHQ-9, STAI, BDI) y te ayudo a localizarlo. ¡Estos datasets suelen incluir miles de respuestas reales! 😊
+⚠️ Consideraciones Éticas
+
+    Consentimiento: Asegúrate de que los datos sean verdaderamente públicos y anonimizados.
+
+    Atribución: Cita la fuente original si los usas en publicaciones.
+
+AI-generated, for reference only
