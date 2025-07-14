@@ -1,0 +1,113 @@
+Documentación del Programa: Visualizador de Grafos Psicométricos
+Descripción General
+
+Este programa genera visualizaciones profesionales de grafos dirigidos para análisis psicométricos, mostrando las relaciones 
+  entre un constructo psicológico central (como "depresión") y sus ítems asociados (síntomas o indicadores). 
+  La herramienta es parte de un sistema MVP para generación y validación de instrumentos psicométricos.
+Características Clave
+
+    Representación Visual de Constructos:
+
+        Nodo central representa el constructo psicológico
+
+        Nodos periféricos representan los ítems o síntomas asociados
+
+        Conexiones dirigidas desde el constructo hacia los ítems
+
+    Sistema de Pesos Visuales:
+
+        Asigna pesos numéricos a las relaciones (0.3 a 0.9)
+
+        Representación mediante:
+
+            Grosor de las líneas
+
+            Escala de colores bivariante (azul-rojo)
+
+            Etiquetas numéricas explícitas
+
+    Personalización Avanzada:
+
+        Configurable para cualquier constructo psicológico
+
+        Acepta listas personalizadas de ítems
+
+        Escala de colores adaptable
+
+Flujo de Trabajo
+
+    Entrada:
+
+        Recibe el nombre del constructo (o usa "depresión" por defecto)
+
+        Acepta una lista de ítems (o genera 10 ítems de ejemplo)
+
+    Procesamiento:
+
+        Crea estructura de grafo con NetworkX
+
+        Asigna pesos aleatorios a las relaciones (simulación)
+
+        Calcula disposición espacial óptima
+
+    Visualización:
+
+        Genera gráfico con:
+
+            Diferenciación clara entre constructo e ítems
+
+            Sistema de colores para pesos
+
+            Flechas direccionales
+
+            Etiquetas legibles
+
+        Incluye leyenda interpretativa
+
+    Salida:
+
+        Guarda imagen en formato PNG
+
+        Archivo nombrado según el constructo
+
+        Mensaje de confirmación en consola
+
+Uso Típico
+python
+
+# Ejemplo básico
+create_weighted_graph()
+
+# Ejemplo personalizado
+items = ["Pérdida de apetito", "Insomnio", "Fatiga", "Baja autoestima"]
+create_weighted_graph(items=items, construct="depresión_clínica", save_path="mis_grafos")
+
+Formatos de Salida
+
+    Gráfico en PNG (150 DPI)
+
+    Tamaño: 14x10 pulgadas
+
+    Resolución: 150 DPI
+
+    Directorio por defecto: "graphs/"
+
+Dependencias
+
+    NetworkX (creación y manipulación de grafos)
+
+    Matplotlib (visualización)
+
+    Numpy (procesamiento numérico)
+
+Notas Técnicas
+
+    Algoritmo de disposición: Spring Layout
+
+    Semilla aleatoria fija para reproducibilidad
+
+    Optimizado para 10-15 ítems
+
+    Sistema de colores accesible (contraste garantizado)
+
+Esta herramienta es ideal para investigadores en psicometría que necesitan visualizar relaciones entre constructos teóricos y sus manifestaciones empíricas durante las fases de desarrollo y validación de instrumentos de medición psicológica.
