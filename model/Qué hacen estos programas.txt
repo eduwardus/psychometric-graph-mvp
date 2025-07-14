@@ -1,0 +1,109 @@
+¡Vamos a explicar el programa como si fuera una receta de cocina para crear tests psicológicos. 🧑🍳📝
+🧠 ¿Qué hace este programa?
+
+Es como un "chef de ítems psicométricos" que usa inteligencia artificial para:
+
+    Leer ejemplos de preguntas existentes (sobre depresión, ansiedad, etc.).
+
+    Cocinar nuevas preguntas (ítems) que midan lo mismo.
+
+    Calificar qué tan buenas son (con "relevancia").
+
+📜 Paso a Paso (Versión Simple)
+1. Preparar los Ingredientes
+python
+
+modelo = "TinyLlama/TinyLlama-1.1B-Chat-v1.0"  # Libro de recetas de IA
+tokenizer = AutoTokenizer.from_pretrained(modelo)  # Traductor humano-IA
+model = AutoModelForCausalLM.from_pretrained(modelo)  # Cerebro de la IA
+
+    Traductor (tokenizer): Convierte palabras en números que la IA entiende.
+
+    Cerebro (model): Es la IA que "piensa" para crear nuevas preguntas.
+
+2. Dar Instrucciones a la IA
+python
+
+prompt = """
+Genera 3 preguntas sobre depresión como estas:
+- Me siento desanimado la mayor parte del día
+- Tengo dificultad para disfrutar actividades
+Formato: "Texto del ítem | relevancia: 0.X"
+"""
+
+    Prompt: Es como decirle a la IA:
+    "Haz 3 preguntas similares a estas, que midan depresión, y dime qué tan buenas son (0 a 1)".
+
+3. Cocinar los Ítems
+python
+
+inputs = tokenizer(prompt, return_tensors="pt")  # Traduce a números
+outputs = model.generate(**inputs, max_new_tokens=100)  # IA genera texto
+
+    La IA "piensa" y escribe nuevas preguntas basadas en los ejemplos.
+
+4. Servir el Resultado
+python
+
+for seq in outputs:
+    texto = tokenizer.decode(seq)  # Traduce números a palabras
+    print(texto.split("|")[0])    # Muestra solo la pregunta
+
+    Ejemplo de salida:
+
+        "Me cuesta encontrar alegría en cosas que antes disfrutaba"
+
+        "Siento un vacío constante en mi vida"
+
+🎯 ¿Para qué sirve?
+
+    Crear tests psicológicos rápidamente.
+
+    Complementar cuestionarios existentes con nuevas preguntas.
+
+    Investigación: Probar cómo diferentes preguntas miden un concepto (como depresión).
+
+🧩 Partes Clave (Como Bloques de Lego)
+
+    Modelo TinyLlama: Es una IA "pequeña" que entiende de psicología.
+
+    Tokenización: Convierte palabras a números (como un diccionario secreto).
+
+    Generación: La IA imagina preguntas nuevas como si fuera un psicólogo creativo.
+
+⚠️ Problemas Comunes (y Soluciones)
+
+    La IA repite preguntas:
+
+        Solución: Añade más ejemplos distintos en el prompt.
+
+    Tarda mucho:
+
+        Solución: Usa menos preguntas (n_items=2) o una IA más pequeña.
+
+    Preguntas sin sentido:
+
+        Solución: Edita el prompt para ser más claro. Ej:
+        "Genera preguntas simples sobre [constructo], evitando jerga técnica".
+
+📌 Ejemplo Práctico
+
+Input (Tú pones):
+python
+
+existing_items = ["Me siento cansado todo el tiempo"]
+new_items = generate_items(existing_items, construct="depresión")
+
+Output (IA devuelve):
+
+    "Me cuesta concentrarme en el trabajo" (Relevancia: 0.85)
+
+    "Disfruto menos de salir con amigos" (Relevancia: 0.78)
+
+🤔 ¿Por qué es útil?
+
+    Ahorra tiempo: Crear ítems manualmente lleva horas.
+
+    Consistencia: La IA sigue reglas (ej: escala Likert 1-5).
+
+    Ideas nuevas: Propone preguntas que humanos no pensarían.
