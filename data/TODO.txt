@@ -1,0 +1,9 @@
+Realmente no va a ser necesaro, o no tan necesario implementar los tests en una web.
+Estos tests han sido ya realizados por Universidades prestigiosas, así que probablemente tengamos los datos necesarios para iniciar nuestros
+estudios de modelos matemáticos de la ley del Karma, en colaboración incluso con estas univesidades.
+1.- Ver los datos de que disponemos, si son accesibles, y cómo, ACCEDER a esos repositorios.!
+Queda ver si hay datos 'dinámicos' que puedan usarse para el ajuste del modelo matemático y no sólo para posicionar en el espacio kármico.
+2.- Ver la implementación de Grafos, como en el proyecto Github de investigador científico-IA, que podría ser una innovación que aportaríamos 
+a los proyectos de estas Universidades.
+
+Resumen: Ver los datos, evaluarlos, usarlos en modelos de Grafos y en modelos matemáticos del Karma.
