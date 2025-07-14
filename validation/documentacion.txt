@@ -1,0 +1,105 @@
+Documentación del Módulo de Validación Psicométrica
+Propósito
+
+Este módulo realiza análisis psicométricos automatizados para evaluar la calidad de instrumentos de medición psicológica generados sintéticamente. Proporciona métricas clave para validar la consistencia interna y calidad de los ítems.
+Características Principales
+1. Análisis de Consistencia Interna
+
+    Alpha de Cronbach: Calcula el coeficiente de fiabilidad clásico
+
+    Intervalos de confianza: Bootstrap del 95% para el Alpha
+
+    Interpretación automática: Clasifica los resultados en categorías estándar
+
+2. Análisis Ítem-Total
+
+    Correlaciones entre cada ítem y el puntaje total
+
+    Detección de ítems problemáticos (correlaciones negativas)
+
+    Identificación de ítems candidatos para invertir
+
+3. Generación de Reportes
+
+    Reporte de texto: Formato legible para humanos
+
+    Reporte JSON: Estructurado para integración con otros sistemas
+
+    Directorio organizado: Guarda resultados en /validation/
+
+Flujo de Trabajo
+
+    Carga de Datos:
+
+        Busca archivos CSV en /data/{constructo}_synthetic.csv
+
+        Valida estructura básica de los datos
+
+    Cálculo de Métricas:
+    python
+
+    # Ejemplo de estructura de resultados
+    {
+        'alpha': {
+            'alpha': 0.85,
+            'ci_lower': 0.82,
+            'ci_upper': 0.88,
+            'interpretation': "Buena consistencia interna"
+        },
+        'item_analysis': DataFrame con correlaciones ítem-total
+    }
+
+    Generación de Reportes:
+
+        Texto plano para revisión rápida
+
+        JSON para procesamiento automatizado
+
+Uso Básico
+python
+
+from validation.psychometrics import validate_items
+
+# Validación con constructo por defecto ("depresión")
+resultados = validate_items()
+
+# Validación para constructo específico
+resultados_ansiedad = validate_items(construct="ansiedad")
+
+Interpretación de Resultados
+Alpha de Cronbach	Interpretación
+≥ 0.90	Excelente consistencia interna
+0.80 - 0.89	Buena consistencia interna
+0.70 - 0.79	Aceptable para investigación
+0.60 - 0.69	Marginal, requiere revisión
+< 0.60	Inaceptable, necesita rediseño
+Requisitos de Datos
+
+    Archivo CSV con:
+
+        Columnas representando ítems
+
+        Filas representando respuestas sintéticas
+
+        Escala Likert típica (ej. 1-5 puntos)
+
+Integración con el Sistema
+Diagram
+Code
+Ejemplo de Reporte Generado
+text
+
+=== REPORTE PSICOMÉTRICO ===
+Constructo: depresión
+Alpha de Cronbach: 0.872 (IC 95%: 0.845-0.893)
+Interpretación: Buena consistencia interna
+
+Análisis Ítem-Total:
+item                     correlacion_item_total  deberia_invertirse
+Me siento vacío                        0.752158             False
+Pierdo interés en actividades          0.801245             False
+...                                    ...                  ...
+
+Esta documentación puede ampliarse con ejemplos específicos según las necesidades del proyecto. 
+  El módulo está diseñado para integrarse fácilmente en pipelines de validación psicométrica automatizada.
+  
