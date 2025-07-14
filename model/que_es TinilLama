@@ -1,0 +1,74 @@
+TinyLlama: Explicación Simple
+
+🔹 ¿Quién creó TinyLlama?
+Fue desarrollado por un equipo de investigadores independientes (no una gran empresa como Google o OpenAI) para ofrecer un modelo de lenguaje pequeño pero eficiente, basado en la arquitectura de Meta's LLaMA.
+
+🔹 ¿Qué es exactamente?
+Es un modelo de lenguaje de inteligencia artificial (como ChatGPT pero más pequeño) entrenado para:
+
+    Entender y generar texto.
+
+    Responder preguntas.
+
+    Seguir instrucciones (ej: "Genera un ítem psicométrico sobre depresión").
+
+🔹 ¿Cómo funciona?
+
+    Aprendió de millones de textos (libros, artículos, código, etc.).
+
+    Usa transformers (como un cerebro artificial que procesa palabras en contexto).
+
+    Genera texto predictivo (adivina la siguiente palabra más probable).
+
+🧠 ¿Qué hace en tu programa?
+
+    Recibe tus ejemplos de ítems (como "Me siento triste sin razón").
+
+    Analiza patrones (qué palabras se repiten, estructura gramatical).
+
+    Inventa nuevos ítems similares (ej: "Tengo dificultad para sentir alegría").
+
+⚙️ Detalles Técnicos
+Característica	Descripción
+Tamaño	1.1 mil millones de parámetros (pequeño vs. GPT-3 con 175 mil millones).
+Entrenamiento	Usó el dataset "SlimPajama" (1.2 TB de texto limpio).
+Idiomas	Principalmente inglés, pero funciona en español (con menos precisión).
+Hardware	Funciona en CPU/GPU normal (no requiere supercomputadoras).
+🔍 ¿Por qué TinyLlama y no otro modelo?
+
+    Rápido: Genera texto en segundos incluso en laptops.
+
+    Liviano: Ocupa ~2.2GB (vs. +100GB de modelos grandes).
+
+    Suficiente para tareas simples como generar ítems psicométricos.
+
+⚠️ Limitaciones
+
+    No es un experto en psicología: Solo imita patrones de texto, no tiene conocimiento real.
+
+    Puede inventar ítems no válidos: Necesitas revisarlos manualmente.
+
+    Sesgos: Podría generar preguntas con estereotipos (por su entrenamiento en datos públicos).
+
+📌 Ejemplo de lo que NO hace bien
+
+Prompt: "Genera un ítem sobre depresión infantil"
+Output posible: "Los niños deprimidos son violentos" (🚨 Estereotipo incorrecto!).
+
+Solución: Guía la IA con ejemplos muy claros en el prompt.
+💡 ¿Cómo mejorarlo para tu proyecto?
+
+    Usa prompts detallados:
+    python
+
+prompt = """  
+Eres un psicólogo experto. Genera ítems sobre depresión que:  
+- Sean apropiados para adultos.  
+- Usen escala Likert 1-5.  
+- Eviten lenguaje estigmatizante.  
+Ejemplos: {existing_items}  
+"""  
+
+Filtra resultados manualmente.
+
+Combínalo con reglas psicométricas (ej: "No usar dobles negaciones").
